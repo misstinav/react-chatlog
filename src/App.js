@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import ChatEntry from './src/components/ChatEntry.js';
-import chatMessages from './data/messages.json';
+import ChatEntry from './ChatEntry.js';
+// import chatMessages from './data/messages.json';
 import ChatLog from './ChatLog.jsx';
 // import './src/components/TimeStamp.js';
 
@@ -24,9 +24,10 @@ const App = () => {
       </header>
       <main>
         {/* Wave 01: Render one ChatEntry component */}
-        <ChatEntry>chatData</ChatEntry>
         {/* Wave 02: Render ChatLog component */}
-        <ChatLog></ChatLog>
+        <ChatLog>
+          <ChatEntry>Stuff</ChatEntry>
+        </ChatLog>
       </main>
     </div>
   );
