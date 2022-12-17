@@ -25,4 +25,8 @@ const ChatLog = (props) => {
   )
 };
 
+ChatLog.protoTypes = {
+  
+}
+
 export default ChatLog;
