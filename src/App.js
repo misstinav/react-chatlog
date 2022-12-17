@@ -1,21 +1,21 @@
 import React from 'react';
 import './App.css';
-import ChatEntry from './ChatEntry.js';
-// import chatMessages from './data/messages.json';
-import ChatLog from './ChatLog.jsx';
-// import './src/components/TimeStamp.js';
+import { useState } from 'react';
+// import ChatEntry from './components/ChatEntry';
+import chatMessages from './data/messages.json';
+import ChatLog from './components/ChatLog';
+import './components/TimeStamp.js';
 
 
-const App = () => {
-  // const chatData = [
-  //   {
-  //     id: 1,
-  //     sender:'Vladimir',
-  //     body:'why are you arguing with me',
-  //     timeStamp:'2018-05-29T22:49:06+00:00',
-  //     liked: false
-  //   }
-  // ]
+
+
+const App = (props) => {
+  const [chatData, setChatData] = useState(chatMessages);
+
+
+  const toggleLike = () => {
+    console.log(`Liked message`);
+  }
 
   return (
     <div id="App">
@@ -24,9 +24,11 @@ const App = () => {
       </header>
       <main>
         {/* Wave 01: Render one ChatEntry component */}
+        {/* <ChatEntry></ChatEntry> */}
         {/* Wave 02: Render ChatLog component */}
-        <ChatLog>
-          <ChatEntry>Stuff</ChatEntry>
+        <ChatLog
+        chatData={chatData}
+        onToggleLike={toggleLike}>
         </ChatLog>
       </main>
     </div>
