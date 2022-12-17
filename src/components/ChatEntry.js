@@ -8,14 +8,14 @@ import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
 
-  const [toggleLike, setToggleLike] = useState('false');
+  const [toggleLike, setToggleLike] = useState('true');
 
   const toggle = () => {
     setToggleLike(!toggleLike);
     console.log(toggleLike);
   };
 
-  const likeColor = toggleLike ? '🤍': '❤️';
+  const likeColor = toggleLike ? '🤍': '❤️'; 
   
   // props.key => value
   // taking these props from App

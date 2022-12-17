@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { useState } from 'react';
-// import ChatEntry from './components/ChatEntry';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
 
@@ -9,9 +8,20 @@ import ChatLog from './components/ChatLog';
 const App = () => {
   // lifting state..single source -useState
   // brains
-  console.log(chatMessages);
-  // const [chatData, setChatData] = useState(chatMessages)
+  // console.log(chatMessages);
+  // const []
+  // const likeMessage = () => {
 
+  // }
+
+
+  const calcTotalLikes = chatMessages => {
+    return chatMessages.reduce((total, message)=> {
+      return total + message.liked
+    }, 0);
+  };
+
+  const totalLikeCount = calcTotalLikes(chatMessages);
 
   // beauty
   return (
@@ -20,15 +30,7 @@ const App = () => {
         <h1>Application title</h1>
       </header>
       <main>
-        {/* Wave 01: Render one ChatEntry component
-        lines 24-26 in Apps become the props
-      <ChatEntry 
-        sender ={chatMessages[0].sender}
-        body ={chatMessages[0].body}
-        timestamp ={chatMessages[0].timeStamp} 
-      ></ChatEntry>    
-         */}
-        
+        <h2>{totalLikeCount} ❤️'s</h2>
         {/*Wave 02: Render ChatLog component */}
         {/* components are the tags and props are the attributes */}
         <ChatLog entries={chatMessages}></ChatLog>
