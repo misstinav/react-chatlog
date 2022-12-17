@@ -4,23 +4,29 @@ import { useState } from 'react';
 
 import PropTypes from 'prop-types';
 // import TimeStamp from './TimeStamp';
+import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
-  const [toggleLike, setToggleLike] = useState('false');
+  
+  // const [toggleLike, setToggleLike] = useState('false');
 
-  const toggle= () => {
-    setToggleLike(!toggleLike);
-    console.log(toggleLike);
-  }
+  // const toggle= () => {
+  //   setToggleLike(!toggleLike);
+  //   console.log(toggleLike);
+  // }
   
   // props.key => value
+  // taking these props from App
+  
   return (
     <div className="chat-entry local">
-      <h2 className="entry-name">Sender Name: {props.sender}</h2>
+      <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
-        <p className="entry-time">This is the time slot{props.time}</p>
-        <button className="like" >🤍 </button>
+        <p className="entry-time">
+          <TimeStamp time={props.timeStamp}></TimeStamp>
+          </p>
+        <button className="like">🤍</button>
       </section>
     </div>
   );

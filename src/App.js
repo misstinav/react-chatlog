@@ -4,32 +4,34 @@ import { useState } from 'react';
 // import ChatEntry from './components/ChatEntry';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
-import './components/TimeStamp.js';
 
 
+const App = () => {
+  // lifting state..single source -useState
+  // brains
+  console.log(chatMessages);
+  // const [chatData, setChatData] = useState(chatMessages)
 
 
-const App = (props) => {
-  const [chatData, setChatData] = useState(chatMessages);
-
-
-  const toggleLike = () => {
-    console.log(`Liked message`);
-  }
-
+  // beauty
   return (
     <div id="App">
       <header>
         <h1>Application title</h1>
       </header>
       <main>
-        {/* Wave 01: Render one ChatEntry component */}
-        {/* <ChatEntry></ChatEntry> */}
-        {/* Wave 02: Render ChatLog component */}
-        <ChatLog
-        chatData={chatData}
-        onToggleLike={toggleLike}>
-        </ChatLog>
+        {/* Wave 01: Render one ChatEntry component
+        lines 24-26 in Apps become the props
+      <ChatEntry 
+        sender ={chatMessages[0].sender}
+        body ={chatMessages[0].body}
+        timestamp ={chatMessages[0].timeStamp} 
+      ></ChatEntry>    
+         */}
+        
+        {/*Wave 02: Render ChatLog component */}
+        {/* components are the tags and props are the attributes */}
+        <ChatLog entries={chatMessages}></ChatLog>
       </main>
     </div>
   );
