@@ -7,13 +7,15 @@ import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
-  
-  // const [toggleLike, setToggleLike] = useState('false');
 
-  // const toggle= () => {
-  //   setToggleLike(!toggleLike);
-  //   console.log(toggleLike);
-  // }
+  const [toggleLike, setToggleLike] = useState('false');
+
+  const toggle = () => {
+    setToggleLike(!toggleLike);
+    console.log(toggleLike);
+  };
+
+  const likeColor = toggleLike ? '🤍': '❤️';
   
   // props.key => value
   // taking these props from App
@@ -26,7 +28,7 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           <TimeStamp time={props.timeStamp}></TimeStamp>
           </p>
-        <button className="like">🤍</button>
+        <button className="like" onClick={toggle}>{likeColor}</button>
       </section>
     </div>
   );
