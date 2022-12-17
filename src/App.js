@@ -6,13 +6,20 @@ import ChatLog from './components/ChatLog';
 
 
 const App = () => {
-  // lifting state..single source -useState
-  // brains
-  // console.log(chatMessages);
-  // const []
-  // const likeMessage = () => {
+  const [messageData, setMessageData] = useState(chatMessages);
 
-  // }
+  const likeMessage = (id) => {
+    console.log(`Liking message ${id}`);
+    const newChatMessage = messageData.map(message => {
+      if (message.id === id) {
+        return {...message, likeCount: message.likeCount + 1};
+      } else {
+        return message;
+      }
+    });
+    setMessageData(newChatMessage);
+  }
+
 
 
   const calcTotalLikes = chatMessages => {
@@ -33,7 +40,7 @@ const App = () => {
         <h2>{totalLikeCount} ❤️'s</h2>
         {/*Wave 02: Render ChatLog component */}
         {/* components are the tags and props are the attributes */}
-        <ChatLog entries={chatMessages}></ChatLog>
+        <ChatLog entries={chatMessages} likeMessageProp={likeMessage}></ChatLog>
       </main>
     </div>
   );

@@ -3,16 +3,19 @@ import './ChatEntry.css';
 import { useState } from 'react';
 
 import PropTypes from 'prop-types';
-// import TimeStamp from './TimeStamp';
 import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
-
+  let likeCount = 0;
   const [toggleLike, setToggleLike] = useState('true');
 
   const toggle = () => {
     setToggleLike(!toggleLike);
-    console.log(toggleLike);
+    console.log(toggleLike, likeCount);
+
+    if (toggleLike === 'true') {
+      return likeCount += 1;
+    } 
   };
 
   const likeColor = toggleLike ? '🤍': '❤️'; 
@@ -38,6 +41,7 @@ const ChatEntry = (props) => {
 
 ChatEntry.propTypes = {
     //Fill with correct proptypes
+  id: PropTypes.number,
   sender: PropTypes.string,
   body: PropTypes.string,
   timeStamp: PropTypes.string,
