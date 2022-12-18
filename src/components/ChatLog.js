@@ -8,6 +8,7 @@ import TimeStamp from './TimeStamp';
 const ChatLog = (props) => {
     // returning a map because  
     return props.entries.map((entry) => {
+        // Test
         return (
             <ChatEntry
             // these are entries
