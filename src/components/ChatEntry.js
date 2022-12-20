@@ -1,24 +1,35 @@
-import React from 'react';
+// import React from 'react';
 import './ChatEntry.css';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
 // Toggle should be moved to app
 const ChatEntry = (props) => {
-  let likeCount = 0;
-  const [toggleLike, setToggleLike] = useState(false);
 
-  const toggle = () => {
-    setToggleLike(!toggleLike);
-
-    // if (toggleLike === 'true') {
-    //   return likeCount += 1;
-    // } 
+  const onLikeButtonClick = () => {
+    const updatedMessage = {
+      id: props.id,
+      sender: props.sender,
+      body: props.body,
+      timestamp: props.timestamp,
+      liked: !props.liked
+    };
+    props.onUpdate(updatedMessage);
   };
-  console.log(toggleLike, likeCount);
-  const likeColor = toggleLike ? '❤️':'🤍'; 
+  // const [toggleLike, setToggleLike] = useState(false);
+  // console.log(props.onUpdate());
+  // const toggle = () => {
+  //   setToggleLike(!toggleLike);
+
+  // };
+  // console.log();
+  
+  
+  
+  
+  const likeColor = props.liked ? '❤️':'🤍'; 
   
   // props.key => value
   // taking these props from App
@@ -31,7 +42,9 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           <TimeStamp time={props.timeStamp}></TimeStamp>
           </p>
-        <button className="like" onClick={toggle}>{likeColor}</button>
+        <button className="like" onClick={onLikeButtonClick}>{likeColor}</button>
+        {/* <button className="like" onClick={toggle}>{likeColor}</button> */}
+
       </section>
     </div>
   );
@@ -46,6 +59,7 @@ ChatEntry.propTypes = {
   body: PropTypes.string,
   timeStamp: PropTypes.string,
   liked: PropTypes.bool,
+  onUpdate: PropTypes.func
 };
 
 export default ChatEntry;

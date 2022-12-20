@@ -2,26 +2,21 @@ import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
 const ChatLog = (props) => {
-  const chats = props.chatData.map(chat => {
+  const chatEntryComponents = props.chatData.map(chat => {
     return <ChatEntry
     key={chat.id}
     sender={chat.sender}
     body={chat.body}
     timeStamp={chat.timeStamp}
     liked={chat.liked}
+    onUpdate= {props.onUpdateMessage}
     />;
   });
+  console.log(props.onUpdateMessage);
 
   return (
     <section>
-      {/* <h2>A list of messages go here. I am in chatlog</h2> */}
-      {/* <ChatEntry></ChatEntry>
-      <ChatEntry></ChatEntry>
-      <ChatEntry></ChatEntry>
-      <ChatEntry></ChatEntry> */}
-      {chats}
-
-
+      {chatEntryComponents}
     </section>
   )
 };
@@ -35,7 +30,7 @@ ChatLog.propTypes = {
     timeStamp: PropTypes.string,
     liked: PropTypes.bool,
   })),
-  likeMessageProp: PropTypes.func
+  onUpdateMessage: PropTypes.func
 }
 
 export default ChatLog;

@@ -8,27 +8,39 @@ import ChatLog from './components/ChatLog';
 const App = () => {
   const [messageData, setMessageData] = useState(chatMessages);
 
-  const likeMessage = (id) => {
-    console.log(`Liking message ${id}`);
-    const newChatMessage = messageData.map(message => {
-      if (message.id === id) {
-        return {...message, likeCount: message.likeCount + 1};
+  // const likeMessage = (id) => {
+  //   // console.log(`Liking message ${chatMessages.id}`);
+  //   const newChatMessage = messageData.map(message => {
+  //     if (message.id === id) {
+  //       return {...message, likeCount: message.likeCount + 1};
+  //     } else {
+  //       return message;
+  //     }
+  //   });
+  //   setMessageData(newChatMessage);
+  // }
+
+  const updateMessageData = updatedMessage => {
+    const messages = messageData.map(message => {
+      if (message.id === updatedMessage.id) {
+        return updatedMessage;
       } else {
         return message;
       }
     });
-    setMessageData(newChatMessage);
-  }
+    setMessageData(messages);
 
-
-
-  const calcTotalLikes = chatMessages => {
-    return chatMessages.reduce((total, message)=> {
-      return total + message.liked
-    }, 0);
   };
 
-  const totalLikeCount = calcTotalLikes(chatMessages);
+
+
+  // const calcTotalLikes = chatMessages => {
+  //   return chatMessages.reduce((total, message)=> {
+  //     return total + message.liked
+  //   }, 0);
+  // };
+
+  // const totalLikeCount = calcTotalLikes(chatMessages);
 
   // beauty
   return (
@@ -37,10 +49,13 @@ const App = () => {
         <h1>Application title</h1>
       </header>
       <main>
-        <h2>{totalLikeCount} ❤️'s</h2>
+        <h2>total Like Count ❤️'s</h2>
         {/*Wave 02: Render ChatLog component */}
         {/* components are the tags and props are the attributes */}
-        <ChatLog entries={chatMessages} likeMessageProp={likeMessage}></ChatLog>
+        <ChatLog
+        entries={messageData}
+        onUpdateMessage={updateMessageData}
+        ></ChatLog>
       </main>
     </div>
   );
