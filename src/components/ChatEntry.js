@@ -8,18 +8,18 @@ import TimeStamp from './TimeStamp';
 // Toggle should be moved to app
 const ChatEntry = (props) => {
   let likeCount = 0;
-  const [toggleLike, setToggleLike] = useState('true');
+  const [toggleLike, setToggleLike] = useState(false);
 
   const toggle = () => {
     setToggleLike(!toggleLike);
     console.log(toggleLike, likeCount);
 
-    if (toggleLike === 'true') {
-      return likeCount += 1;
-    } 
+    // if (toggleLike === 'true') {
+    //   return likeCount += 1;
+    // } 
   };
 
-  const likeColor = toggleLike ? '🤍': '❤️'; 
+  const likeColor = toggleLike ? '❤️':'🤍'; 
   
   // props.key => value
   // taking these props from App
