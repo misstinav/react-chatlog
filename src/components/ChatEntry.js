@@ -5,6 +5,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
+// Toggle should be moved to app
 const ChatEntry = (props) => {
   let likeCount = 0;
   const [toggleLike, setToggleLike] = useState('true');
