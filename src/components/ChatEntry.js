@@ -12,13 +12,12 @@ const ChatEntry = (props) => {
 
   const toggle = () => {
     setToggleLike(!toggleLike);
-    console.log(toggleLike, likeCount);
 
     // if (toggleLike === 'true') {
     //   return likeCount += 1;
     // } 
   };
-
+  console.log(toggleLike, likeCount);
   const likeColor = toggleLike ? '❤️':'🤍'; 
   
   // props.key => value
