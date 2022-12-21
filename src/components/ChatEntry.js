@@ -11,10 +11,10 @@ const ChatEntry = (props) => {
       id: props.id,
       sender: props.sender,
       body: props.body,
-      timestamp: props.timestamp,
+      timeStamp: props.timeStamp,
       liked: !props.liked
     };
-    console.log(props.id, props.sender, props.liked);
+    // console.log(props.id, props.sender, props.liked);
     props.onUpdate(updatedMessage);
   };
   // const [toggleLike, setToggleLike] = useState(false);
@@ -23,8 +23,6 @@ const ChatEntry = (props) => {
   //   setToggleLike(!toggleLike);
 
   // };
-  // console.log();
-  
   
   
   
