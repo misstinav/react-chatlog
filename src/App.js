@@ -14,26 +14,11 @@ const App = () => {
         console.log(`${message.id} is being updated`);
         return updatedMessage;
       } else {
-        // console.log(`${message.id} is not being updated`)
         return message;
       }
     });
     setMessageData(messages);
-    // console.log(messages);
   };
-
-
-  // const likeMessage = (id) => {
-  //   // console.log(`Liking message ${chatMessages.id}`);
-  //   const newChatMessage = messageData.map(message => {
-  //     if (message.id === id) {
-  //       return {...message, likeCount: message.likeCount + 1};
-  //     } else {
-  //       return message;
-  //     }
-  //   });
-  //   setMessageData(newChatMessage);
-  // }
 
 
   const calcTotalLikes = chatMessages => {
@@ -45,7 +30,6 @@ const App = () => {
 
   const totalLikeCount = calcTotalLikes(messageData);
 
-  // beauty
   return (
     <div id="App">
       <header>

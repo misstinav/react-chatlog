@@ -1,6 +1,4 @@
 import './ChatEntry.css';
-// import { useState } from 'react';
-
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
@@ -14,22 +12,11 @@ const ChatEntry = (props) => {
       timeStamp: props.timeStamp,
       liked: !props.liked
     };
-    // console.log(props.id, props.sender, props.liked);
     props.onUpdate(updatedMessage);
   };
-  // const [toggleLike, setToggleLike] = useState(false);
-  // console.log(props.onUpdate());
-  // const toggle = () => {
-  //   setToggleLike(!toggleLike);
+  
 
-  // };
-  
-  
-  
   const likeColor = props.liked ? '❤️':'🤍'; 
-  
-  // props.key => value
-  // taking these props from App
   
   return (
     <div className="chat-entry local">
@@ -43,8 +30,6 @@ const ChatEntry = (props) => {
         className="like"
         onClick={onLikeButtonClick}
         >{likeColor}</button>
-        {/* <button className="like" onClick={toggle}>{likeColor}</button> */}
-
       </section>
     </div>
   );

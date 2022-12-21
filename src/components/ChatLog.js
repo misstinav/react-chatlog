@@ -2,7 +2,6 @@ import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
 
 const ChatLog = (props) => {
-    // console.log(props.onUpdateMessage);
     const chatEntryComponents = props.entries.map(chat => {
         return (<ChatEntry
         id={chat.id}
