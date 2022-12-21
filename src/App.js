@@ -36,13 +36,14 @@ const App = () => {
   // }
 
 
-  // const calcTotalLikes = chatMessages => {
-  //   return chatMessages.reduce((total, message)=> {
-  //     return total + message.liked
-  //   }, 0);
-  // };
+  const calcTotalLikes = chatMessages => {
+    return chatMessages.reduce((total, message)=> {
+      console.log(message.liked);
+      return total + message.liked
+    }, 0);
+  };
 
-  // const totalLikeCount = calcTotalLikes(chatMessages);
+  const totalLikeCount = calcTotalLikes(messageData);
 
   // beauty
   return (
@@ -51,7 +52,7 @@ const App = () => {
         <h1>Application title</h1>
       </header>
       <main>
-        <h2>total Like Count ❤️'s</h2>
+        <h2>{totalLikeCount} ❤️'s</h2>
         {/*Wave 02: Render ChatLog component */}
         {/* components are the tags and props are the attributes */}
         <ChatLog
