@@ -18,7 +18,7 @@ const ChatLog = (props) => {
 
     return (
         <section>
-        {chatEntryComponents}
+            {chatEntryComponents}
         </section>
     )
 };
