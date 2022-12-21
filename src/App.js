@@ -49,10 +49,12 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>Chat between Vladimir and Estragon</h1>
+        <section>
+          <h2>{totalLikeCount} ❤️s</h2>
+        </section>
       </header>
       <main>
-        <h2>{totalLikeCount} ❤️'s</h2>
         {/*Wave 02: Render ChatLog component */}
         {/* components are the tags and props are the attributes */}
         <ChatLog
