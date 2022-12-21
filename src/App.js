@@ -11,13 +11,17 @@ const App = () => {
   const updateMessageData = updatedMessage => {
     const messages = messageData.map(message => {
       if (message.id === updatedMessage.id) {
+        console.log(`${message.id} is being updated`)
         return updatedMessage;
       } else {
+        // console.log(`${message.id} is not being updated`)
         return message;
       }
     });
     setMessageData(messages);
+    // console.log(messages);
   };
+
 
   // const likeMessage = (id) => {
   //   // console.log(`Liking message ${chatMessages.id}`);

@@ -1,11 +1,9 @@
-// import React from 'react';
 import './ChatEntry.css';
 // import { useState } from 'react';
 
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 
-// Toggle should be moved to app
 const ChatEntry = (props) => {
 
   const onLikeButtonClick = () => {
@@ -16,7 +14,8 @@ const ChatEntry = (props) => {
       timestamp: props.timestamp,
       liked: !props.liked
     };
-    // props.onUpdate(updatedMessage);
+    console.log(props.id, props.sender, props.liked);
+    props.onUpdate(updatedMessage);
   };
   // const [toggleLike, setToggleLike] = useState(false);
   // console.log(props.onUpdate());
@@ -41,8 +40,11 @@ const ChatEntry = (props) => {
         <p>{props.body}</p>
         <p className="entry-time">
           <TimeStamp time={props.timeStamp}></TimeStamp>
-          </p>
-        <button className="like" onClick={onLikeButtonClick}>{likeColor}</button>
+        </p>
+        <button
+        className="like"
+        onClick={onLikeButtonClick}
+        >{likeColor}</button>
         {/* <button className="like" onClick={toggle}>{likeColor}</button> */}
 
       </section>
