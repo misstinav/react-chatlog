@@ -8,6 +8,17 @@ import ChatLog from './components/ChatLog';
 const App = () => {
   const [messageData, setMessageData] = useState(chatMessages);
 
+  const updateMessageData = updatedMessage => {
+    const messages = messageData.map(message => {
+      if (message.id === updatedMessage.id) {
+        return updatedMessage;
+      } else {
+        return message;
+      }
+    });
+    setMessageData(messages);
+  };
+
   // const likeMessage = (id) => {
   //   // console.log(`Liking message ${chatMessages.id}`);
   //   const newChatMessage = messageData.map(message => {
@@ -19,19 +30,6 @@ const App = () => {
   //   });
   //   setMessageData(newChatMessage);
   // }
-
-  const updateMessageData = updatedMessage => {
-    const messages = messageData.map(message => {
-      if (message.id === updatedMessage.id) {
-        return updatedMessage;
-      } else {
-        return message;
-      }
-    });
-    setMessageData(messages);
-
-  };
-
 
 
   // const calcTotalLikes = chatMessages => {

@@ -1,29 +1,38 @@
-import React from 'react';
 import ChatEntry from './ChatEntry';
 import PropTypes from 'prop-types';
-import TimeStamp from './TimeStamp';
 
-
-// mapping because the original ChatEntry was hardcoded
 const ChatLog = (props) => {
-    // returning a map because  
-    return props.entries.map((entry) => {
-        return (
-            <ChatEntry
-            // these are entries
-            id={entry.id}
-            body={entry.body}
-            sender={entry.sender}
-            timeStamp={entry.timeStamp}
-            liked={entry.liked}
-        ></ChatEntry>
-        );
-    });   
+    console.log(props.onUpdateMessage);
+    const chatEntryComponents = props.chatData.map(chat => {
+        return <ChatEntry
+        key={chat.id}
+        sender={chat.sender}
+        body={chat.body}
+        timeStamp={chat.timeStamp}
+        liked={chat.liked}
+        onUpdate= {props.onUpdateMessage}
+        />;
+    });
+
+
+
+    return (
+        <section>
+        {chatEntryComponents}
+        </section>
+    )
 };
 
 ChatLog.propTypes = {
-    entries: PropTypes.arrayOf(PropTypes.object).isRequired,
-    
-};
+    //Fill with correct proptypes
+    chatData: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number,
+        sender: PropTypes.string,
+        body: PropTypes.string,
+        timeStamp: PropTypes.string,
+        liked: PropTypes.bool,
+    })),
+    onUpdateMessage: PropTypes.func
+}
 
-export default ChatLog
+export default ChatLog;

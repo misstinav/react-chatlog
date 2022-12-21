@@ -16,7 +16,7 @@ const ChatEntry = (props) => {
       timestamp: props.timestamp,
       liked: !props.liked
     };
-    props.onUpdate(updatedMessage);
+    // props.onUpdate(updatedMessage);
   };
   // const [toggleLike, setToggleLike] = useState(false);
   // console.log(props.onUpdate());
