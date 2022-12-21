@@ -11,7 +11,6 @@ const App = () => {
   const updateMessageData = updatedMessage => {
     const messages = messageData.map(message => {
       if (message.id === updatedMessage.id) {
-        console.log(`${message.id} is being updated`);
         return updatedMessage;
       } else {
         return message;
@@ -23,7 +22,6 @@ const App = () => {
 
   const calcTotalLikes = chatMessages => {
     return chatMessages.reduce((total, message)=> {
-      console.log(message.liked);
       return total + message.liked
     }, 0);
   };
