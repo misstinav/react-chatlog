@@ -4,6 +4,19 @@ import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
 
+  const indChat = {
+    id: props.id,
+    sender: props.sender,
+    body: props.body,
+    timeStamp: props.timeStamp,
+    liked: props.liked
+  };
+
+
+  const messageLocation = props.onVerify(indChat) ? 'chat-entry remote': 'chat-entry local';
+
+
+
   const onLikeButtonClick = () => {
     const updatedMessage = {
       id: props.id,
@@ -19,7 +32,8 @@ const ChatEntry = (props) => {
   const likeColor = props.liked ? '❤️':'🤍'; 
   
   return (
-    <div className="chat-entry local">
+    // <div className='chat-entry local'>
+    <div className={messageLocation}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
@@ -44,7 +58,8 @@ ChatEntry.propTypes = {
   body: PropTypes.string,
   timeStamp: PropTypes.string,
   liked: PropTypes.bool,
-  onUpdate: PropTypes.func
+  onUpdate: PropTypes.func,
+  onVerify: PropTypes.func
 };
 
 export default ChatEntry;

@@ -10,6 +10,7 @@ const ChatLog = (props) => {
         timeStamp={chat.timeStamp}
         liked={chat.liked}
         onUpdate= {props.onUpdateMessage}
+        onVerify={props.onVerifySender}
         />);
     });
 
@@ -31,7 +32,8 @@ ChatLog.propTypes = {
         timeStamp: PropTypes.string,
         liked: PropTypes.bool,
     })),
-    onUpdateMessage: PropTypes.func
+    onUpdateMessage: PropTypes.func,
+    onVerifySender: PropTypes.func
 }
 
 export default ChatLog;

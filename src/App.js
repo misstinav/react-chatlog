@@ -19,6 +19,14 @@ const App = () => {
     setMessageData(messages);
   };
 
+  const assignUniqueIdToSender = returnedMessage => {
+    if (returnedMessage.sender === 'Estragon') {
+      return 1
+    } else {
+      return 0
+    }
+  };
+
 
   const calcTotalLikes = chatMessages => {
     return chatMessages.reduce((total, message)=> {
@@ -42,6 +50,7 @@ const App = () => {
         <ChatLog
         entries={messageData}
         onUpdateMessage={updateMessageData}
+        onVerifySender={assignUniqueIdToSender}
         ></ChatLog>
       </main>
     </div>
